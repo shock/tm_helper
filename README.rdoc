@@ -4,11 +4,11 @@ Some useful utilities for Ruby development in TextMate.
 
 == Features
 
-* Formats +puts+ output when running RSpec specs in TextMate using the RSpec TextMate bundle.
+* Formats output when running RSpec specs in TextMate using the RSpec TextMate bundle via the method +output+
   * Namely, it escapes HTML and converts +\n+ characters to +<br/>+.
-  * This is useful when using +puts+ to debug code while running specs in TextMate.
+  * This is useful when using print statements to debug code while running specs in TextMate.
 * Supports forcing of logs to the Textmate window.
-  * Defining TM_SHOW_LOGS in your TextMate Preferences->Shell Variables will cause all logs issued using the Logger class be to redirected to the TextMate runner window.
+  * Defining TM_SHOW_LOGS in your environment will cause all logs issued using the Logger class be to redirected to the TextMate runner window.
   * This is useful when you want to see your application's logs while running an RSpec spec in TextMate.
 
 == Installation
@@ -19,25 +19,20 @@ Include tm_helper into your Gemfile.
 
 == Usage
 
-Simply use +puts+ as you would normally.  Output will be automatically formatted when running in an RSpec window.
+Use +output+ as you would normally use +puts+.  Output will be automatically formatted when running in an RSpec window.
 
-Define TM_SHOW_LOGS in your TextMate Preferences->Shell Variables to cause Logger logs issued by your application be to redirected to the TextMate runner window.
+If using spork with --drb, define TM_HELPER=true and TM_RSPEC=true in the shell before running spork.
 
-=== Advanced Usage
+eg.
 
-To test whether your code is running in TextMate, use the +running_in_textmate?+ function:
+    $ TM_HELPER=true TM_RSPEC=true spork
 
-  if TmHelper.running_in_textmate? 
-    puts "I am running in TextMate."
-  end
-  
-To test whether your spec is being executed using the RSpec TextMate bundle, use the +running_rspec_bundle?+ function:
+Optionally, define TM_SHOW_LOGS to cause Logger logs issued by your application be to redirected to the TextMate runner window.
 
-  if TmHelper.running_rspec_bundle? 
-    puts "I am running in TextMate with the RSpec TextMate bundle loaded."
-  end
-  
 == NOTES
+
+This gem is an extension of the original gem I developed while I was working at Capital Thought in 2010:
+http://github.com/capitalthought/tm_helper.  It is open source, and licensed under the origin gem's license.
 
 == LICENSE
 
