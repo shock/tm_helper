@@ -31,7 +31,7 @@ if TmHelper.running_in_textmate? && TmHelper.running_rspec_bundle?
   end
 else
   module Kernel
-    def output string
+    def printout string
       puts string
     end
   end

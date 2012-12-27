@@ -4,7 +4,7 @@ Some useful utilities for Ruby development in TextMate.
 
 == Features
 
-* Formats output when running RSpec specs in TextMate using the RSpec TextMate bundle via the method +output+
+* Formats output when running RSpec specs in TextMate using the RSpec TextMate bundle via the method +printout+
   * Namely, it escapes HTML and converts +\n+ characters to +<br/>+.
   * This is useful when using print statements to debug code while running specs in TextMate.
 * Supports forcing of logs to the Textmate window.
@@ -19,7 +19,7 @@ Include tm_helper into your Gemfile.
 
 == Usage
 
-Use +output+ as you would normally use +puts+.  Output will be automatically formatted when running in an RSpec window.
+Use +printout+ as you would normally use +puts+.  Output will be automatically formatted when running in an RSpec window.
 
 If using spork with --drb, define TM_HELPER=true and TM_RSPEC=true in the shell before running spork.
 
