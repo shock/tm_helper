@@ -23,10 +23,10 @@ module TmHelper
   end
 end
 
-if TmHelper.running_in_textmate? && TmHelper.running_rspec_bundle?
+if TmHelper.running_in_textmate?
   module Kernel
-    def output string
-      puts TmHelper.convert_to_html( string ) + "<br/>"
+    def printout string
+      puts TmHelper.textmate_wrap( string ) + "<br/>"
     end
   end
 else
@@ -45,10 +45,10 @@ if TmHelper.running_in_textmate? && ENV["TM_SHOW_LOGS"]
     alias :orig_warn :warn
     alias :orig_error :error
 
-    def info string; output TmHelper.textmate_wrap( string ); end
-    def debug string; output TmHelper.textmate_wrap( string ); end
-    def warn string; output TmHelper.textmate_wrap( string ); end
-    def error string; output TmHelper.textmate_wrap( string ); end
+    def info string; orig_info string; printout string; end
+    def debug string; orig_debug string; printout string; end
+    def warn string; orig_warn string; printout string; end
+    def error string; orig_error string; printout string; end
 
   end
 end
