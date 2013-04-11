@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tm_helper}
-  s.version = "0.3.0"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["shock"]
-  s.date = %q{2012-12-27}
+  s.date = %q{2013-04-11}
   s.description = %q{}
   s.email = %q{billdoughty@capitalthought.com}
   s.extra_rdoc_files = [
