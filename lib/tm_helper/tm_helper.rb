@@ -25,14 +25,14 @@ end
 
 if TmHelper.running_in_textmate?
   module Kernel
-    def printout string
-      puts TmHelper.textmate_wrap( string ) + "<br/>"
+    def printout object
+      puts TmHelper.textmate_wrap( object.to_s ) + "<br/>"
     end
   end
 else
   module Kernel
-    def printout string
-      puts string
+    def printout object
+      puts object
     end
   end
 end
